@@ -133,7 +133,7 @@ class Ghc < Formula
       system "cabal", "v2-install", "alex", "happy", *cabal_args, "--installdir=#{binary}/bin"
       system "./boot"
     elsif OS.mac? && MacOS.version <= :catalina
-      system "autoconf"
+      system "./boot.source"
     end
 
     args = []
