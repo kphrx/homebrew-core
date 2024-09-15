@@ -32,7 +32,7 @@ class PinentryMac < Formula
   def install
     system "autoreconf", "-fiv"
     system "autoconf"
-    system "./configure", "--disable-ncurses", "--enable-maintainer-mode"
+    system "./configure", "--disable-ncurses", "--enable-maintainer-mode", "--with-libassuan-prefix=#{Formula["libassuan@2"].opt_prefix}"
     system "make"
     prefix.install "macosx/pinentry-mac.app"
     bin.write_exec_script "#{prefix}/pinentry-mac.app/Contents/MacOS/pinentry-mac"
